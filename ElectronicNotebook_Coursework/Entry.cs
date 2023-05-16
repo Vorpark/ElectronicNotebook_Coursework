@@ -6,8 +6,8 @@ namespace ElectronicNotebook_Coursework
     {
         public string Name { get; set; }
         public int PhoneNumber { get; set; }
-        public DateTime DOB { get; set; }
-        public Entry (string name, int phoneNumber, DateTime dob)
+        public string DOB { get; set; }
+        public Entry (string name, int phoneNumber, string dob)
         {
             Name = name;
             PhoneNumber = phoneNumber;

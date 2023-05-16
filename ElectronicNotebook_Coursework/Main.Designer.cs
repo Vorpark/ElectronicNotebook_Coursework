@@ -32,12 +32,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ФИО = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Номер_Телефона = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ФИО,
+            this.Номер_Телефона,
+            this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(545, 471);
@@ -73,6 +80,21 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.DeleteEntry);
             // 
+            // ФИО
+            // 
+            this.ФИО.HeaderText = "Фамилия и инициалы";
+            this.ФИО.Name = "ФИО";
+            // 
+            // Номер_Телефона
+            // 
+            this.Номер_Телефона.HeaderText = "Номер Телефона";
+            this.Номер_Телефона.Name = "Номер_Телефона";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Дата рождения";
+            this.Column1.Name = "Column1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +117,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ФИО;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Номер_Телефона;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
