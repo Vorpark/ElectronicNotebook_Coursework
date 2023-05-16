@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ElectronicNotebook_Coursework
 {
@@ -67,6 +68,92 @@ namespace ElectronicNotebook_Coursework
                     }
                 }
             }
+        }
+
+        private void FindName(object sender, EventArgs e)
+        {
+            bool find = false;
+            dataGridView1.Rows.Clear();
+            string path = "NotebookDB.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length > 0)
+                    {
+                        if (words[0].Contains(textBox1.Text) || words[0].ToLower().Contains(textBox1.Text))
+                        {
+                            dataGridView1.Rows.Add(words[0], words[1], words[2]);
+                            find = true;
+                        }
+                    }
+                }
+                if (!find)
+                {
+                    MessageBox.Show("Ничего не найдено!", "Ошибка!", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void FindPhoneNumber(object sender, EventArgs e)
+        {
+            bool find = false;
+            dataGridView1.Rows.Clear();
+            string path = "NotebookDB.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length > 0)
+                    {
+                        if (words[1].Contains(textBox2.Text))
+                        {
+                            dataGridView1.Rows.Add(words[0], words[1], words[2]);
+                            find = true;
+                        }
+                    }
+                }
+                if (!find)
+                {
+                    MessageBox.Show("Ничего не найдено!", "Ошибка!", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void FindDOB(object sender, EventArgs e)
+        {
+            bool find = false;
+            dataGridView1.Rows.Clear();
+            string path = "NotebookDB.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length > 0)
+                    {
+                        if (words[2] == dateTimePicker1.Value.ToShortDateString())
+                        {
+                            dataGridView1.Rows.Add(words[0], words[1], words[2]);
+                            find = true;
+                        }
+                    }
+                }
+                if (!find)
+                {
+                    MessageBox.Show("Ничего не найдено!", "Ошибка!", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void ClearFilter(object sender, EventArgs e)
+        {
+            UpdateData();
         }
     }
 }
